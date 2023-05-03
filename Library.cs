@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
-    internal class Library
+    public class Library
     {
+
     }
 }
