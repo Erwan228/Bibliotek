@@ -6,22 +6,23 @@
         private readonly List<Book> _lendedExpired;
         private readonly List<Book> _lendedNotExpired;
         private readonly List<Book> _books;
-        public List<Lender> Lenders { get; private set; }
         public Library()
         {
             _notLended = new List<Book>();
             _lendedExpired = new List<Book>();
             _lendedNotExpired = new List<Book>();
+            _books = new List<Book>();
         }
-        public void AddBook(string name, int lendingTime)
+        public Book AddBook(string name, int lendingTime)
         {
             var book = new Book(name, lendingTime);
             _books.Add(book);
+            return book;
         }
-        public void AddLender(string name)
+        public Lender AddLender(string name)
         {
             var lender = new Lender(name);
-            Lenders.Add(lender);
+            return lender;
         }
         public void ShowNotLended()
         {
@@ -66,7 +67,7 @@
                     _lendedNotExpired.Add(book);
                 }
             }
-            Console.WriteLine("Lånte bøker som har gått utover fristen:");
+            Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
             foreach (var book in _lendedNotExpired)
             {
                 book.ShowName();

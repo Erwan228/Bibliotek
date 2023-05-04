@@ -14,17 +14,20 @@
             _title = title;
             _lendingTime = lendingTime;
             IsLended = false;
-            Lender = null;
         }
         public void RegisterLoan(Lender lender, DateTime date)
         {
             IsLended = true;
-            Lender = lender;
             _dateLended = date;
+            lender.LendersBooks.Add(this);
         }
         public void ShowName()
         {
             Console.WriteLine(_title);
+        }
+        public void ShowExpire()
+        {
+            Console.WriteLine(_dateLended.AddDays(_lendingTime));
         }
         public bool IsExpired()
         {
