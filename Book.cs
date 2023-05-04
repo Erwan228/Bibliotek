@@ -4,8 +4,8 @@
     {
         private string _title;
         private int _lendingTime;
-        private bool _isLended;
-        public Lender Lender { get; set; }
+        public bool IsLended { get; private set; }
+        public Lender Lender { get; private set; }
         private DateTime _dateLended;
 
 
@@ -13,14 +13,27 @@
         {
             _title = title;
             _lendingTime = lendingTime;
-            _isLended = false;
+            IsLended = false;
             Lender = null;
         }
         public void RegisterLoan(Lender lender, DateTime date)
         {
-            _isLended = true;
+            IsLended = true;
             Lender = lender;
             _dateLended = date;
+        }
+        public void ShowName()
+        {
+            Console.WriteLine(_title);
+        }
+        public bool IsExpired()
+        {
+            DateTime theDay = DateTime.Now;
+            if (_dateLended >= theDay.AddDays(-_lendingTime))
+            {
+                return true;
+            }
+            else { return false; };
         }
     }
 }
