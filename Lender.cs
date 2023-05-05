@@ -11,6 +11,7 @@
         }
         public void ShowBooksAndDeadlines()
         {
+            Console.Write(_name);
             foreach (var book in LendersBooks)
             {
                 book.ShowName();

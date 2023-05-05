@@ -48,7 +48,7 @@
             {
                 if (book.IsExpired() == true)
                 {
-                    _lendedNotExpired.Add(book);
+                    _lendedExpired.Add(book);
                 }
             }
             Console.WriteLine("Lånte bøker som har gått utover fristen:");
