@@ -46,7 +46,7 @@
             _lendedExpired.Clear();
             foreach (var book in _books)
             {
-                if (book.IsExpired())
+                if (book.IsExpired() == true)
                 {
                     _lendedNotExpired.Add(book);
                 }

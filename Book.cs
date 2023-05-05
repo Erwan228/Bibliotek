@@ -32,11 +32,15 @@
         public bool IsExpired()
         {
             DateTime theDay = DateTime.Now;
-            if (_dateLended >= theDay.AddDays(-_lendingTime))
+            int compare = DateTime.Compare(_dateLended, theDay.AddDays(-_lendingTime));
+            Console.WriteLine(compare + _title);
+            if (compare < 0)
             {
                 return true;
             }
             else { return false; };
         }
+
+
     }
 }
