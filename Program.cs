@@ -19,6 +19,8 @@
             library.ShowLendedNotExpired();
 
             per.ShowBooksAndDeadlines();
+
+            blablaBook.ShowLenderAndDeadline();
         }
     }
 }

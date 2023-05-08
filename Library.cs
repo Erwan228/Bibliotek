@@ -39,6 +39,7 @@
             {
                 book.ShowName();
             }
+            Console.WriteLine();
 
         }
         public void ShowLendedExpired()
@@ -56,15 +57,19 @@
             {
                 book.ShowName();
             }
+            Console.WriteLine();
         }
         public void ShowLendedNotExpired()
         {
             _lendedNotExpired.Clear();
             foreach (var book in _books)
             {
-                if (!book.IsExpired())
+                if (book.IsLended)
                 {
-                    _lendedNotExpired.Add(book);
+                    if (!book.IsExpired())
+                    {
+                        _lendedNotExpired.Add(book);
+                    }
                 }
             }
             Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
@@ -72,6 +77,7 @@
             {
                 book.ShowName();
             }
+            Console.WriteLine();
         }
 
 

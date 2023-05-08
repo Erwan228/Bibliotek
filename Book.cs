@@ -19,6 +19,7 @@
         {
             IsLended = true;
             _dateLended = date;
+            Lender = lender;
             lender.LendersBooks.Add(this);
         }
         public void ShowName()
@@ -42,6 +43,12 @@
                 else { return false; }
             }
             else { return false; };
+        }
+        public void ShowLenderAndDeadline()
+        {
+            Console.WriteLine(_title);
+            Lender.ShowName();
+            ShowExpire();
         }
 
 

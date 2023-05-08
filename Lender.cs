@@ -11,13 +11,17 @@
         }
         public void ShowBooksAndDeadlines()
         {
-            Console.Write(_name);
+            Console.WriteLine(_name);
             foreach (var book in LendersBooks)
             {
                 book.ShowName();
                 book.ShowExpire();
                 Console.WriteLine();
             }
+        }
+        public void ShowName()
+        {
+            Console.WriteLine(_name);
         }
     }
 }
