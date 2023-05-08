@@ -24,62 +24,115 @@
             var lender = new Lender(name);
             return lender;
         }
-        public void ShowNotLended()
-        {
-            _notLended.Clear();
-            foreach (var book in _books)
-            {
-                if (!book.IsLended)
-                {
-                    _notLended.Add(book);
-                }
-            }
-            Console.WriteLine("Ulånte bøker:");
-            foreach (var book in _notLended)
-            {
-                book.ShowName();
-            }
-            Console.WriteLine();
+        //public void ShowNotLended()
+        //{
+        //    _notLended.Clear();
+        //    foreach (var book in _books)
+        //    {
+        //        if (!book.IsLended)
+        //        {
+        //            _notLended.Add(book);
+        //        }
+        //    }
+        //    Console.WriteLine("Ulånte bøker:");
+        //    foreach (var book in _notLended)
+        //    {
+        //        book.ShowName();
+        //    }
+        //    Console.WriteLine();
 
-        }
-        public void ShowLendedExpired()
+        //}
+        //public void ShowLendedExpired()
+        //{
+        //    _lendedExpired.Clear();
+        //    foreach (var book in _books)
+        //    {
+        //        if (book.IsExpired())
+        //        {
+        //            _lendedExpired.Add(book);
+        //        }
+        //    }
+        //    Console.WriteLine("Lånte bøker som har gått utover fristen:");
+        //    foreach (var book in _lendedExpired)
+        //    {
+        //        book.ShowName();
+        //    }
+        //    Console.WriteLine();
+        //}
+        //public void ShowLendedNotExpired()
+        //{
+        //    _lendedNotExpired.Clear();
+        //    foreach (var book in _books)
+        //    {
+        //        if (book.IsLended && !book.IsExpired())
+        //        {
+        //            _lendedNotExpired.Add(book);
+        //        }
+
+        //    }
+        //    Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
+        //    foreach (var book in _lendedNotExpired)
+        //    {
+        //        book.ShowName();
+        //    }
+        //    Console.WriteLine();
+        //}
+
+        public void ShowIfLended(bool notLended, bool expired, bool notExpired)
         {
-            _lendedExpired.Clear();
-            foreach (var book in _books)
+            if (notExpired)
             {
-                if (book.IsExpired() == true)
+                _lendedNotExpired.Clear();
+                foreach (var book in _books)
                 {
-                    _lendedExpired.Add(book);
-                }
-            }
-            Console.WriteLine("Lånte bøker som har gått utover fristen:");
-            foreach (var book in _lendedExpired)
-            {
-                book.ShowName();
-            }
-            Console.WriteLine();
-        }
-        public void ShowLendedNotExpired()
-        {
-            _lendedNotExpired.Clear();
-            foreach (var book in _books)
-            {
-                if (book.IsLended)
-                {
-                    if (!book.IsExpired())
+                    if (book.IsLended && !book.IsExpired())
                     {
                         _lendedNotExpired.Add(book);
                     }
-                }
-            }
-            Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
-            foreach (var book in _lendedNotExpired)
-            {
-                book.ShowName();
-            }
-            Console.WriteLine();
-        }
 
+                }
+                Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
+                foreach (var book in _lendedNotExpired)
+                {
+                    book.ShowName();
+                }
+                Console.WriteLine();
+            }
+            if (expired)
+            {
+                _lendedExpired.Clear();
+                foreach (var book in _books)
+                {
+                    if (book.IsExpired())
+                    {
+                        _lendedExpired.Add(book);
+                    }
+                }
+                Console.WriteLine("Lånte bøker som har gått utover fristen:");
+                foreach (var book in _lendedExpired)
+                {
+                    book.ShowName();
+                }
+                Console.WriteLine();
+            }
+            if (notLended)
+            {
+                _notLended.Clear();
+                foreach (var book in _books)
+                {
+                    if (!book.IsLended)
+                    {
+                        _notLended.Add(book);
+                    }
+                }
+                Console.WriteLine("Ulånte bøker:");
+                foreach (var book in _notLended)
+                {
+                    book.ShowName();
+                }
+                Console.WriteLine();
+            }
+        }
 
     }
 }

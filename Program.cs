@@ -14,9 +14,9 @@
             abcBook.RegisterLoan(per, DateTime.Now.AddDays(-15));
             blablaBook.RegisterLoan(pål, DateTime.Now.AddDays(-5));
 
-            library.ShowNotLended();
-            library.ShowLendedExpired();
-            library.ShowLendedNotExpired();
+            library.ShowIfLended(true, false, false);
+            library.ShowIfLended(false, true, false);
+            library.ShowIfLended(false, false, true);
 
             per.ShowBooksAndDeadlines();
 

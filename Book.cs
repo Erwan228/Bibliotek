@@ -32,17 +32,10 @@
         }
         public bool IsExpired()
         {
-            DateTime theDay = DateTime.Now;
-            if (IsLended)
-            {
-                int compare = DateTime.Compare(_dateLended, theDay.AddDays(-_lendingTime));
-                if (compare == -1)
-                {
-                    return true;
-                }
-                else { return false; }
-            }
-            else { return false; };
+            if (!IsLended) return false;
+            var theDay = DateTime.Now;
+            int compare = DateTime.Compare(_dateLended, theDay.AddDays(-_lendingTime));
+            return compare == -1;
         }
         public void ShowLenderAndDeadline()
         {
