@@ -92,11 +92,7 @@
 
                 }
                 Console.WriteLine("Lånte bøker som ikke har gått utover fristen:");
-                foreach (var book in _lendedNotExpired)
-                {
-                    book.ShowName();
-                }
-                Console.WriteLine();
+                listBooks(_lendedNotExpired);
             }
             if (expired)
             {
@@ -109,11 +105,7 @@
                     }
                 }
                 Console.WriteLine("Lånte bøker som har gått utover fristen:");
-                foreach (var book in _lendedExpired)
-                {
-                    book.ShowName();
-                }
-                Console.WriteLine();
+                listBooks(_lendedExpired);
             }
             if (notLended)
             {
@@ -126,12 +118,16 @@
                     }
                 }
                 Console.WriteLine("Ulånte bøker:");
-                foreach (var book in _notLended)
-                {
-                    book.ShowName();
-                }
-                Console.WriteLine();
+                listBooks(_notLended);
             }
+        }
+        private void listBooks(List<Book> list)
+        {
+            foreach (var book in list)
+            {
+                book.ShowName();
+            }
+            Console.WriteLine();
         }
 
     }
